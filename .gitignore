@@ -1,0 +1,12 @@
+# Build dirs and files
+/build
+/i18n
+/platform
+/Resources
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/

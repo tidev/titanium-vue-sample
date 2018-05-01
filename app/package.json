@@ -1,0 +1,27 @@
+{
+  "name": "titanium-vue-sample",
+  "version": "1.0.0",
+  "description": "A dead simple app to demonstrate Titanium with Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "titanium-vue": "file:../../titanium-vue",
+    "titanium-vue-template-compiler": "file:../../titanium-vue/packages/titanium-vue-template-compiler",
+    "vue-loader": "^15.0.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-target-titanium": "file:../../titanium-webpack-devkit/packages/webpack-target-titanium"
+  }
+}
