@@ -1,0 +1,10 @@
+<template>
+  <tab-group
+    ios:barColor="#fff"
+    ios:tabsTintColor="#42b983"
+    ios:tabsBackgroundImage="images/transparent.png"
+    ios:tabsTranslucent="false"
+    ios:shadowImage="images/transparent.png">
+    <slot/>
+  </tab-group>
+</template>

@@ -29,8 +29,9 @@ class WebpackBundler {
 
 		const args = [
 			'--preserve-symlinks',
-			path.resolve(__dirname, '..', 'app', 'node_modules', '.bin', 'webpack'),
+			path.resolve(__dirname, '..', 'node_modules', '.bin', 'webpack'),
 			'--progress',
+			'--hide-modules',
 			...this.generateEnvFlags(config)
 		];
 
@@ -38,6 +39,9 @@ class WebpackBundler {
 			this.logger.info('Running initial Webpack build');
 			this.logger.trace(`Executing: node ${args.join(' ')}`);
 			const child = spawn('node', args, {
+				env: Object.assign({}, process.env, {
+					TARGET_PLATFORM: config.targetPlatform
+				}),
 				stdio: 'inherit',
 				cwd: path.join(this.cli.argv['project-dir'], 'app')
 			});

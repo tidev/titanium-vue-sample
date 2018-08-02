@@ -1,0 +1,12 @@
+<template>
+    <button
+        ref="button"
+        color="#fff"
+        backgroundColor="#4fc08d"
+        height="40"
+        width="160"
+        borderRadius="20"
+        v-on="$listeners">
+        <slot/>
+    </button>
+</template>
