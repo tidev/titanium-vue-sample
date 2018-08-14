@@ -50,48 +50,57 @@ export default {
         { properties: { title: 'Detail', accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DETAIL } },
         { properties: { title: 'Checkmark', accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK } },
       ],
-      customData: [
+      customDataSource: [
         {
+          id: 1,
+          type: 'deposit',
+          date: '13/09/2018 16:23',
+          name: 'Ann Gray',
+          amount: '$290.00',
+          status: 'Complete'
+        }, {
+          id: 2,
+          type: 'withdrawl',
+          date: '13/09/2018 12:53',
+          name: 'Margo Healts',
+          amount: '$135.50',
+          status: 'Complete'
+        }
+      ]
+    }
+  },
+  computed: {
+    customData: function() {
+      return this.customDataSource.map(item => {
+        return {
           icon: {
-            text: '\uf309',
-            color: "#4fc08d"
+            text: this.iconForType(item.type),
+            color: this.colorForType(item.type)
           },
           date: {
-            text: '13/09/2018 16:23'
+            text: item.date
           },
           name: {
-            text: 'Ann Gray'
+            text: item.name
           },
           amount: {
-            text: '$290.00',
-            color: '#4fc08d'
+            text: item.amount,
+            color: this.colorForType(item.type)
           },
           status: {
-            text: 'Complete'
-          },
-          template: 'custom'
-        },
-        {
-          icon: {
-            text: '\uf30c',
-            color: "#f66"
-          },
-          date: {
-            text: '13/09/2018 12:53'
-          },
-          name: {
-            text: 'Margo Healts'
-          },
-          amount: {
-            text: '$135.50',
-            color: '#f66'
-          },
-          status: {
-            text: 'Complete'
+            text: item.status
           },
           template: 'custom'
         }
-      ]
+      });
+    }
+  },
+  methods: {
+    iconForType(transactionType) {
+      return transactionType === 'deposit' ? '\uf309' : '\uf30c';
+    },
+    colorForType(transactionType) {
+      return transactionType === 'deposit' ? '#4fc08d' : '#f66';
     }
   }
 }
