@@ -1,12 +1,34 @@
 <template>
-  <label :font="font" :text="icon"/>
+  <label :font="font" :text="unicodeValue"/>
 </template>
 
 <script>
 const fontFamilyMap = {
-  brands: 'FontAwesome5FreeBrandsRegular',
+  brands: 'FontAwesome5BrandsRegular',
   regular: 'FontAwesome5FreeRegular',
   solid: 'FontAwesome5FreeSolid'
+};
+
+const iconMap = {
+  brands: {
+    'android': 'f17b',
+    'apple': 'f179'
+  },
+  regular: {
+
+  },
+  solid: {
+    'angle-double-left': 'f100',
+    'clipboard-list': 'f46d',
+    'clone': 'f24d',
+    'code': 'f121',
+    'fire': 'f06d',
+    'flask': 'f0c3',
+    'layer': 'f5fd',
+    'long-arrow-alt-down': 'f309',
+    'long-arrow-alt-up': 'f30c',
+    'thumbs-up': 'f164'
+  }
 };
 
 export default {
@@ -31,6 +53,18 @@ export default {
         fontFamily: fontFamilyMap[this.iconStyle],
         fontSize: this.fontSize
       }
+    },
+    unicodeValue: function () {
+      if (!this.icon) {
+        return '';
+      }
+
+      if (!iconMap[this.iconStyle] || !iconMap[this.iconStyle][this.icon]) {
+        Ti.API.warn(`FontAwesome style "${this.iconStyle}" has no icon named "${this.icon}"`);
+        return '';
+      }
+
+      return String.fromCharCode(parseInt(iconMap[this.iconStyle][this.icon], 16));
     }
   }
 }

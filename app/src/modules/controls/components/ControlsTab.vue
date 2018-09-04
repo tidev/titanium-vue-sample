@@ -1,17 +1,19 @@
 <template>
   <tab title="UI" ios:icon="/images/icons/controls.png">
     <base-window ref="win" layout="vertical">
-      <view top="84" height="76" ref="header">
-        <view layout="horizontal">
-          <label :text="'\uf121'" left="40" color="#2c3e50" :font="{ fontSize: 32, fontFamily: 'FontAwesome5FreeSolid' }"></label>
-          <label color="#2c3e50" left="20" :font="{ fontSize: 24, fontWeight: 'bold' }">UI Elements</label>
+      <view top="84" :height="Ti.UI.SIZE" ref="header">
+        <view layout="horizontal" :height="Ti.UI.SIZE">
+          <base-icon left="40" color="#2c3e50" icon="code" fontSize="32"></base-icon>
+          <label color="#2c3e50" left="20" :font="{ fontSize: 24, fontWeight: 'bold' }">
+            UI Elements
+          </label>
         </view>
       </view>
-      <table-view @click="onItemClick" :separatorStyle="Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE" :ios:selectionStyle="Ti.UI.iOS.TableViewCellSelectionStyle.NONE">
+      <table-view top="30" @click="onItemClick" :separatorStyle="Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE" :ios:selectionStyle="Ti.UI.iOS.TableViewCellSelectionStyle.NONE">
         <table-view-row className="item" v-for="item in items" :key="item.id" :hasChild="true">
           <view height= "75" layout="horizontal">
-            <view width="50" left="20">
-              <label color="#42b983" :font="{ fontSize: 24, fontFamily: 'FontAwesome5FreeSolid' }">{{item.icon}}</label>
+            <view width="50" left="10">
+              <base-icon color="#42b983" :fontSize="24" :icon="item.icon"></base-icon>
             </view>
             <label left="20" color="#7f8c8d">{{item.title}}</label>
           </view>
@@ -29,17 +31,15 @@ export default {
       items: [
         {
           id: 'views',
-          icon: '\uf5fd',
+          icon: 'layer',
           title: 'Structural Views'
-        },
-        {
+        }, {
           id: 'inputs',
-          icon: '\uf46d',
+          icon: 'clipboard-list',
           title: 'Input Elements'
-        },
-        {
+        }, {
           id: 'dialogs',
-          icon: '\uf24d',
+          icon: 'clone',
           title: 'Dialogs'
         }
       ]

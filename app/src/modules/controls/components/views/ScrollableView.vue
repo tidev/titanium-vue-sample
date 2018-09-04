@@ -21,17 +21,17 @@ export default {
       cards: [
         {
           id: 1,
-          icon: '\uf101',
+          icon: 'angle-double-left',
           title: 'Step 1',
           text: 'Swipe left to continue'
         }, {
           id: 2,
-          icon: '\uf06d',
+          icon: 'fire',
           title: 'Step 2',
           text: 'Awesome, you got the concept'
         }, {
           id: 3,
-          icon: '\uf164',
+          icon: 'thumbs-up',
           title: 'Step 3',
           text: 'That\'s it, now go back!'
         }

@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     iconForType(transactionType) {
-      return transactionType === 'deposit' ? '\uf309' : '\uf30c';
+      return transactionType === 'deposit' ? 'long-arrow-alt-down' : 'long-arrow-alt-up';
     },
     colorForType(transactionType) {
       return transactionType === 'deposit' ? '#4fc08d' : '#f66';
