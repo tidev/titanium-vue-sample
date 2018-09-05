@@ -13,6 +13,10 @@
         <base-button @click="onSubmit">Submit</base-button>
       </input-demo>
 
+      <input-demo ref="pickerDemo" name="Picker" hint="Choose a date">
+        <picker v-model="pickerValue" :type="Ti.UI.PICKER_TYPE_DATE" width="100%"/>
+      </input-demo>
+
       <input-demo ref="textFieldDemo" name="Text Field">
         <text-field v-model="textFieldValue" left="0" hintText="Enter some text"/>
       </input-demo>
@@ -39,6 +43,7 @@ export default {
     return {
       switchValue: false,
       sliderValue: 25,
+      pickerValue: new Date(),
       textFieldValue: '',
       textAreaValue: ''
     }
@@ -49,6 +54,9 @@ export default {
     },
     sliderValue(newVal) {
       this.$refs.sliderDemo.state = `Slider value: ${newVal.toFixed(0)}`;
+    },
+    pickerValue(newVal) {
+      this.$refs.pickerDemo.state = newVal.toLocaleDateString('en-US');
     },
     textFieldValue(newVal) {
       this.$refs.textFieldDemo.state = newVal !== '' ? `Text: ${newVal}` : '';
@@ -61,4 +69,3 @@ export default {
   }
 }
 </script>
-
