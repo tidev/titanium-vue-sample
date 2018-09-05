@@ -38,6 +38,10 @@ export default {
           icon: 'clipboard-list',
           title: 'Input Elements'
         }, {
+          id: 'utility',
+          icon: 'cogs',
+          title: 'Utility Views'
+        }, {
           id: 'dialogs',
           icon: 'clone',
           title: 'Dialogs'
