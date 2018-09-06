@@ -1,5 +1,5 @@
 <template>
-  <base-window title="Utility Views" layout="vertical">
+  <base-window title="Utilities" layout="vertical">
     <table-view @click="onItemClick" :separatorStyle="Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE" :ios:selectionStyle="Ti.UI.iOS.TableViewCellSelectionStyle.NONE">
       <table-view-row className="item" v-for="item in items" :key="item.id" :hasChild="true">
         <view height= "75" layout="horizontal">
@@ -20,17 +20,13 @@ export default {
     return {
       items: [
         {
-          id: 'activity-indicator',
+          id: 'progress-indicators',
           icon: 'spinner',
-          title: 'Activity Indicator'
+          title: 'Progress Indicators'
         }, {
           id: 'masked-image',
           icon: 'fill-drip',
           title: 'Masked Image'
-        }, {
-          id: 'progress-bar',
-          icon: 'cogs',
-          title: 'Progress Bar'
         }, {
           id: 'refresh-control',
           icon: 'sync-alt',
