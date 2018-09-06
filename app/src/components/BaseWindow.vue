@@ -6,7 +6,8 @@
     ios:hideShadow="true"
     ios:navTintColor="#4fc08d"
     :ios:titleAttributes="{ color: '#2c3e50' }"
-    ios:translucent="false">
+    ios:translucent="false"
+    v-on="$listeners">
     <slot/>
   </window>
 </template>

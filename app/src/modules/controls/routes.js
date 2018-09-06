@@ -4,12 +4,18 @@ import ListView from './components/views/ListView';
 import ScrollableView from './components/views/ScrollableView';
 import ScrollView from './components/views/ScrollView';
 import TableView from './components/views/TableView';
+import ActivityIndicator from './components/utility/ActivityIndicator';
+import MaskedImage from './components/utility/MaskedImage';
+import UtilityViews from './components/utility/UtilityViews';
 import Views from './components/views/Views';
 import View from './components/views/View';
 import WebView from './components/views/WebView';
 
 export const routes = [
     { path: '/controls/inputs', component: Inputs },
+    { path: '/controls/utility', component: UtilityViews },
+    { path: '/controls/utility/activity-indicator', component: ActivityIndicator },
+    { path: '/controls/utility/masked-image', component: MaskedImage },
     { path: '/controls/views', component: Views },
     { path: '/controls/views/view', component: View },
     { path: '/controls/views/image-view', component: ImageView },

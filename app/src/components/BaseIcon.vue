@@ -22,13 +22,18 @@ const iconMap = {
     'clipboard-list': 'f46d',
     'clone': 'f24d',
     'code': 'f121',
+    'cogs': 'f085',
     'comment-alt': 'f27a',
+    'fill-drip': 'f576',
     'fire': 'f06d',
     'flask': 'f0c3',
     'heart': 'f004',
     'layer': 'f5fd',
     'long-arrow-alt-down': 'f309',
     'long-arrow-alt-up': 'f30c',
+    'search': 'f002',
+    'spinner': 'f110',
+    'sync-alt': 'f2f1',
     'thumbs-up': 'f164',
     'user-circle': 'f2bd'
   }
