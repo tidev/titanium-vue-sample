@@ -1,12 +1,12 @@
 <template>
   <base-window @postlayout="onPostLayout()" title="Masked Image" layout="vertical">
     <view layout="vertical" height="40%">
-      <base-label top="5" color="#7f8c8d" :font="{ fontSize: 14 }">Mode: {{currentBlendModeName}}</base-label>
+      <base-label top="5" color="#7f8c8d" fontSize="14">Mode: {{currentBlendModeName}}</base-label>
       <base-label top="10" left="20" :font="{ fontWeight: 'bold' }">Image and tint</base-label>
       <masked-image ref="tintImage" top="20" mask="/images/titanium-logo.png" tint="#4fc08d" :mode="currentBlendMode"/>
     </view>
     <view layout="vertical" height="60%">
-      <base-label top="20" left="20" :font="{ fontWeight: 'bold' }">Two images</base-label>
+      <base-label top="20" left="20" fontWeight="bold">Two images</base-label>
       <masked-image ref="modeImage" top="20" mask="/images/titanium-logo.png" image="/images/vuejs.png" :mode="currentBlendMode"/>
       <view>
         <base-button @click="switchBlendMode()" bottom="10">Change blend mode</base-button>
