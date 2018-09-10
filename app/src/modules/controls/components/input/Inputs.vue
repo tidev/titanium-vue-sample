@@ -18,13 +18,13 @@
       </input-demo>
 
       <input-demo ref="textFieldDemo" name="Text Field">
-        <text-field v-model="textFieldValue" left="0" hintText="Enter some text"/>
+        <text-field v-model="textFieldValue" left="0" hintText="Enter some text" ios:backgroundColor="#f5f5f5" ios:height="40" ios:borderRadius="10" :ios:padding="{ right: 8, left: 8 }"/>
       </input-demo>
 
       <input-demo ref="textAreaDemo" name="Text Area" hint="Enter some text">
         <vertical-layout :height="Ti.UI.SIZE">
-          <text-area left="0" right="0" height="50" v-model="textAreaValue" hintText="Enter some text"></text-area>
-          <label height="50" backgroundColor="red">{{textAreaValue}}</label>
+          <text-area left="0" right="0" height="100" v-model="textAreaValue" hintText="Enter some text" ios:backgroundColor="#f5f5f5" ios:borderRadius="10" :ios:padding="{ top: 12, right: 8, bottom: 12, left: 8 }"></text-area>
+          <label height="50">{{textAreaValue}}</label>
         </vertical-layout>
       </input-demo>
     </scroll-view>

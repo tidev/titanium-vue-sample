@@ -5,7 +5,7 @@
       <label right="0" color="#7f8c8d" :font="{ fontSize: 12 }">{{info}}</label>
     </view>
     <view :height="Ti.UI.SIZE" top="5">
-      <view :height="Ti.UI.SIZE" :clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED" top="10" bottom="10">
+      <view :height="Ti.UI.SIZE" :ios:clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED" top="10" bottom="10">
         <slot/>
       </view>
     </view>
