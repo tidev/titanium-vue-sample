@@ -19,6 +19,7 @@ const iconMap = {
   },
   solid: {
     'angle-double-left': 'f100',
+    'arrow-down': 'f063',
     'clipboard-list': 'f46d',
     'clone': 'f24d',
     'code': 'f121',
