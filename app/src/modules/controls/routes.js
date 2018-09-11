@@ -6,6 +6,7 @@ import ScrollView from './components/views/ScrollView';
 import TableView from './components/views/TableView';
 import MaskedImage from './components/utility/MaskedImage';
 import ProgressIndicators from './components/utility/ProgressIndicators';
+import RefreshControl from './components/utility/RefreshControl';
 import Toolbar from './components/utility/Toolbar';
 import UtilityViews from './components/utility/UtilityViews';
 import Views from './components/views/Views';
@@ -17,6 +18,7 @@ export const routes = [
     { path: '/controls/utility', component: UtilityViews },
     { path: '/controls/utility/masked-image', component: MaskedImage },
     { path: '/controls/utility/progress-indicators', component: ProgressIndicators },
+    { path: '/controls/utility/refresh-control', component: RefreshControl },
     { path: '/controls/utility/toolbar', component: Toolbar },
     { path: '/controls/views', component: Views },
     { path: '/controls/views/view', component: View },

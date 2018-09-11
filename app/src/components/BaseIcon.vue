@@ -32,6 +32,7 @@ const iconMap = {
     'layer': 'f5fd',
     'long-arrow-alt-down': 'f309',
     'long-arrow-alt-up': 'f30c',
+    'microphone': 'f130',
     'search': 'f002',
     'spinner': 'f110',
     'sync-alt': 'f2f1',
