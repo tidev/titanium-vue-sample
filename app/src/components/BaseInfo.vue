@@ -1,12 +1,12 @@
 <template>
-  <view>
-    <view backgroundColor="#f8f8f8" top="20" right="20" bottom="20" left="20" :height="Ti.UI.SIZE" :clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED">
-      <view left="0" width="4" :backgroundColor="primaryColor" zIndex="1" :clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED">
+  <view :height="Ti.UI.SIZE">
+    <view backgroundColor="#f8f8f8" top="20" right="20" bottom="20" left="20" :height="Ti.UI.SIZE" :ios:clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED">
+      <view ref="borderView" left="0" width="4" :backgroundColor="primaryColor" zIndex="1" :ios:clipMode="Ti.UI.iOS.CLIP_MODE_DISABLED">
         <view :backgroundColor="primaryColor" width="20" height="20" top="14" borderRadius="10">
           <label color="#fff">!</label>
         </view>
       </view>
-      <view top="12" right="24" bottom="12" left="30" layout="vertical">
+      <view ref="content" @postlayout="computeHeight" right="24" left="30" layout="vertical" :height="Ti.UI.SIZE">
         <slot/>
       </view>
     </view>
@@ -32,6 +32,15 @@ export default {
   computed: {
     primaryColor: function () {
       return colorTable[this.type];
+    }
+  },
+  methods: {
+    computeHeight() {
+      const computedHeight = this.$refs.content.getAttribute('size').height + 24;
+      const currentBorderHeight = this.$refs.borderView.getAttribute('size').height;
+      if (currentBorderHeight !== computedHeight) {
+        this.$refs.borderView.setAttribute('height', computedHeight);
+      }
     }
   }
 }

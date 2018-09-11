@@ -1,11 +1,11 @@
 <template>
   <base-window title="Table View" layout="vertical">
-    <base-info height="132">
-      <label width="100%" color="#34495e" :font="{ fontSize: 14 }">
+    <base-info>
+      <label color="#34495e" :font="{ fontSize: 14 }">
         A TableView allows you to use the dynamic component features of Vue.js at the cost of performance. Consider using a ListView of you are working with huge data sets.
       </label>
     </base-info>
-    <table-view>
+    <table-view :ios:selectionStyle="Ti.UI.iOS.TableViewCellSelectionStyle.NONE">
       <table-view-section>
         <view slot="headerView" height="40" backgroundColor="#fff">
           <label left="20" bottom="10" color="#2c3e50" :font="{ fontWeight: 'bold' }">Custom cell</label>
