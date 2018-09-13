@@ -1,7 +1,7 @@
 <template>
   <tab title="UI" ios:icon="/images/icons/controls.png">
     <base-window ref="win" layout="vertical">
-      <view top="84" :height="Ti.UI.SIZE" ref="header">
+      <view v-platform="ios" top="84" :height="Ti.UI.SIZE">
         <view layout="horizontal" :height="Ti.UI.SIZE">
           <base-icon left="40" color="#2c3e50" icon="code" fontSize="32"></base-icon>
           <label color="#2c3e50" left="20" :font="{ fontSize: 24, fontWeight: 'bold' }">
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { device } from 'titanized';
+
 export default {
   name: 'ControlsTab',
   data: function() {
@@ -50,7 +52,9 @@ export default {
     }
   },
   mounted() {
-    this.$refs.win.$refs.window.titaniumView.hideNavBar({animated: false});
+    if (device.runs('ios')) {
+      this.$refs.win.$titaniumView.hideNavBar({animated: false});
+    }
   },
   methods: {
     onItemClick(e) {
