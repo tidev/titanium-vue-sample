@@ -1,3 +1,4 @@
+import Dialogs from './components/Dialogs';
 import Inputs from './components/input/Inputs';
 import ImageView from './components/views/ImageView';
 import ListView from './components/views/ListView';
@@ -15,6 +16,7 @@ import View from './components/views/View';
 import WebView from './components/views/WebView';
 
 export const routes = [
+    { path: '/controls/dialogs', component: Dialogs },
     { path: '/controls/inputs', component: Inputs },
     { path: '/controls/utility', component: UtilityViews },
     { path: '/controls/utility/masked-image', component: MaskedImage },
