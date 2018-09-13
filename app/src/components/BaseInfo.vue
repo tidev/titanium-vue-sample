@@ -16,7 +16,7 @@
 <script>
 const colorTable = {
   info: '#2973b7',
-  error: '#6ff'
+  error: '#f66'
 }
 
 export default {

@@ -12,7 +12,7 @@
           <base-label left="0" fontSize="14">Some file to download</base-label>
           <base-label ref="downloadState" right="0" fontSize="14" color="#7f8c8d">{{downloadState}}</base-label>
         </view>
-        <progress-bar ref="progressBar" top="10" min="0" max="100" tintColor="#4fc08d" trackTintColor="#f5f5f5"></progress-bar>
+        <progress-bar ref="progressBar" top="10" width="100%" min="0" max="100" tintColor="#4fc08d" trackTintColor="#f5f5f5"></progress-bar>
         <base-label top="10" left="0" fontSize="12" color="#7f8c8d">{{bytesLoaded | formatBytes}} of {{bytesTotal | formatBytes}} </base-label>
       </view>
       <base-button top="20" @click="downloadStuff()">Start download</base-button>

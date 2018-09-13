@@ -1,6 +1,5 @@
 <template>
   <window
-    ref="window"
     backgroundColor="#fff"
     ios:barImage="images/transparent.png"
     ios:hideShadow="true"

@@ -1,5 +1,5 @@
 <template>
-  <base-window title="Views">
+  <base-window title="Structural Views">
     <table-view @click="onItemClick" :separatorStyle="Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE" :ios:selectionStyle="Ti.UI.iOS.TableViewCellSelectionStyle.NONE">
         <table-view-row className="item" v-for="item in items" :key="item.id" :hasChild="true">
           <view height= "75" layout="horizontal">
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'ControlsTab',
+  name: 'StructuralViews',
   data: function() {
     return {
       items: [

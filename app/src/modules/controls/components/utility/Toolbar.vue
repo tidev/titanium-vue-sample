@@ -6,7 +6,8 @@
     </view>
     <toolbar tintColor="#4fc08d" bottom="0" barColor="white">
       <button @click="sendTheThing()">Send</button>
-      <button :systemButton="Ti.UI.iOS.SystemButton.CAMERA"></button>
+      <button v-platform="ios" systemButton="Ti.UI.iOS.SystemButton.CAMERA"></button>
+      <button v-platform="android">Camera</button>
       <button>Cancel</button>
     </toolbar>
   </base-window>
