@@ -44,6 +44,10 @@ export default {
           icon: 'cogs',
           title: 'Utility Views'
         }, {
+          id: 'platform',
+          icon: 'flask',
+          title: 'Platform'
+        }, {
           id: 'dialogs',
           icon: 'clone',
           title: 'Dialogs'

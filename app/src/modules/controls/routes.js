@@ -1,16 +1,18 @@
 import Dialogs from './components/Dialogs';
 import Inputs from './components/input/Inputs';
-import ImageView from './components/views/ImageView';
-import ListView from './components/views/ListView';
-import ScrollableView from './components/views/ScrollableView';
-import ScrollView from './components/views/ScrollView';
-import TableView from './components/views/TableView';
 import MaskedImage from './components/utility/MaskedImage';
 import ProgressIndicators from './components/utility/ProgressIndicators';
 import RefreshControl from './components/utility/RefreshControl';
 import SearchBar from './components/utility/SearchBar';
 import Toolbar from './components/utility/Toolbar';
 import UtilityViews from './components/utility/UtilityViews';
+import PlatformViews from './components/platform/PlatformViews';
+import { routes as platformRoutes } from './components/platform/routes';
+import ImageView from './components/views/ImageView';
+import ListView from './components/views/ListView';
+import ScrollableView from './components/views/ScrollableView';
+import ScrollView from './components/views/ScrollView';
+import TableView from './components/views/TableView';
 import Views from './components/views/Views';
 import View from './components/views/View';
 import WebView from './components/views/WebView';
@@ -18,6 +20,8 @@ import WebView from './components/views/WebView';
 export const routes = [
     { path: '/controls/dialogs', component: Dialogs },
     { path: '/controls/inputs', component: Inputs },
+    { path: '/controls/platform', component: PlatformViews },
+    ...platformRoutes,
     { path: '/controls/utility', component: UtilityViews },
     { path: '/controls/utility/masked-image', component: MaskedImage },
     { path: '/controls/utility/progress-indicators', component: ProgressIndicators },
