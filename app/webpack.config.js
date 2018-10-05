@@ -3,9 +3,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { GenerateAppJsPlugin, titaniumTarget } = require('webpack-target-titanium');
+const { GenerateAppJsPlugin, PlatformAwareFileSystemPlugin, titaniumTarget } = require('webpack-target-titanium');
 const { VueLoaderPlugin } = require('vue-loader');
 const titaniumCompiler = require('titanium-vue-template-compiler');
+const webpack = require('webpack');
 
 const projectRootDirectory = path.resolve('..');
 const outputDirectory = path.join(projectRootDirectory, 'Resources');
@@ -24,26 +25,13 @@ module.exports = env => {
 			libraryTarget: 'commonjs2',
 			filename: '[name].js',
 		},
-		/*
-		optimization: {
-			splitChunks: {
-				cacheGroups: {
-					vendors: {
-						test: /[\\/]node_modules[\\/]/,
-						name: 'vendors',
-						enforce: true,
-						chunks: 'all'
-					}
-				}
-			}
-		},
-		*/
+		devtool: 'source-map',
 		module: {
 			rules: [
 				{
 					test: /\.js$/,
 					loader: 'babel-loader',
-					exclude: /node_modules/
+					include: [path.join(__dirname, 'src')]
 				},
 				{
 					test: /\.vue$/,
@@ -59,15 +47,17 @@ module.exports = env => {
 			]
 		},
 		resolve: {
-			extensions: ['.js', '.scss', '.css'],
-			symlinks: false
-		},
-		resolveLoader: {
+			alias: {
+				'@components': path.join(__dirname, 'src', 'components'),
+				'@modules': path.join(__dirname, 'src', 'modules')
+			},
+			extensions: ['.js', '.scss', '.css', '.vue'],
 			symlinks: false
 		},
 		node: {
 			fs: 'empty',
-			global: false
+			global: false,
+			setImmediate: false
 		},
 		plugins: [
 			new CleanWebpackPlugin(
@@ -79,19 +69,17 @@ module.exports = env => {
 					allowExternal: true
 				}
 			),
-			/*
-			new webpack.optimize.CommonsChunkPlugin({
-				name: 'vendor'
+			new webpack.DefinePlugin({
+				'process.env.TARGET_PLATFORM': JSON.stringify(env.targetPlatform)
 			}),
-			*/
 			new CopyWebpackPlugin([
 				{ context: 'assets', from: '**/*' },
 				{ from: 'platform/**/*', to: '..' }
 			]),
 			new GenerateAppJsPlugin([
-				//'vendors',
 				'bundle'
 			]),
+			new PlatformAwareFileSystemPlugin({ platform: env.targetPlatform }),
 			new VueLoaderPlugin()
 		]
 	};
@@ -99,6 +87,8 @@ module.exports = env => {
 	if (env && !env.production) {
 		//config.plugins.push(new WatchStateNotifierPlugin());
 	}
+
+	process.env.TARGET_PLATFORM = env.targetPlatform;
 
 	return config;
 };
